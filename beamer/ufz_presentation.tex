@@ -1,0 +1,185 @@
+%%===============================================================================
+%%      Beamer class source. (original from:  Sascha Frank)
+%%
+%%             File:
+%%           Author:    Christoph L. Schneider
+%%             Date:    Apr 2008
+%%          Compile:    DVItoPS, PStoPDF
+%%===============================================================================
+
+\documentclass{beamer}	%use beamer class
+
+\usepackage{german}
+\usepackage{graphicx}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% use style file 'Leipzig' for colors, fonts and layout %
+% leave those options empty, you do NOT wish		%
+							%
+% OPTIONS						%
+% (a) turn on page numbers at the bottom line: numbers	%
+% (b) turn on flowchart bar at the top line: flowchart	%
+% (c) turn on navigation bar at the bottom line: nav	%
+							%
+\usetheme[numbers,flowchart]{Leipzig}			%
+							%
+% e.g. set all options					%
+%\usetheme[numbers,flowchart,nav]{Leipzig}		%
+% or only numbers					%
+%\usetheme[numbers]{Leipzig}				%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{document}
+
+\title{Fancy titles are always cool}   
+\author{Christoph Schneider}
+\institute{UFZ}
+\date{\today}
+
+%this graphic appears on the title slide
+%\titlegraphic{\includegraphics[width=2cm]{ufz_logo}}
+
+%this graphic is your background
+\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{ufz_background}}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Table of contents}\tableofcontents
+\end{frame}
+
+
+\section{Section Nr.1} 
+\begin{frame}\frametitle{Title} 
+Every single frame should include a title.
+\end{frame}
+
+\subsection{Subsection Nr.1.1}
+\begin{frame}\frametitle{Test title}
+...cause without titles something is missing.
+\end{frame}
+
+
+\section{Section Nr.2} 
+\subsection{List I}
+\begin{frame}\frametitle{Itemization}
+\begin{itemize}
+\item Introduction course to \LaTeX  
+\item Advanced course
+\item Seminar work and presentations by \LaTeX 
+\item Beamerclass
+\end{itemize} 
+\end{frame}
+
+\begin{frame}\frametitle{Itemization with pauses}
+\begin{itemize}
+\item Introduction course to \LaTeX  \pause 
+\item Advanced course \pause 
+\item Seminar work and presentations by \LaTeX  \pause 
+\item Beamerclass
+\end{itemize} 
+\end{frame}
+
+\subsection{List II}
+\begin{frame}\frametitle{Numerated List}
+\begin{enumerate}
+\item Introduction course to \LaTeX  
+\item Advanced course
+\item Seminar work and presentations by \LaTeX 
+\item Beamerclass
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\frametitle{Numerated Lists with pauses}
+\begin{enumerate}
+\item Introduction course to \LaTeX  \pause 
+\item Advanced course \pause 
+\item Seminar work and presentations by \LaTeX  \pause 
+\item Beamerclass
+\end{enumerate}
+\end{frame}
+
+\section{Section Nr.3} 
+\subsection{Tables}
+\begin{frame}
+\frametitle{Table}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Date} & \textbf{Presentator} & \textbf{Title} \\
+\hline
+WS 04/05 & C.S. &  First Steps with \LaTeX  \\
+\hline
+SS 05 & C.S. & \LaTeX \ Course continues \\
+\hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tables with pauses}
+\begin{tabular}{c c c}
+A & B & C \\ 
+\pause 
+1 & 2 & 3 \\  
+\pause 
+A & B & C \\ 
+\end{tabular} 
+\end{frame}
+
+
+\section{Section Nr.4}
+\subsection{Blocks}
+\begin{frame}\frametitle{Blocks}
+
+\begin{block}{Block title}
+Block text
+\end{block}
+
+\begin{exampleblock}{Block title}
+Block text 
+\end{exampleblock}
+
+
+\begin{alertblock}{Block title}
+Block text 
+\end{alertblock}
+\end{frame}
+
+
+\subsection{The $\backslash$Only command}
+\begin{frame}[fragile]\frametitle{Elements of fixed position}
+\begin{verbatim}...\usepackage[absolute,overlay]{textpos} \end{verbatim}
+\vspace*{3cm}
+\begin{textblock}{0.6}(0.1,0.5)
+\only<1>{\[A=B+C \] \[B=C+D\]}
+\only<2>{\[A=2C+D\]}
+\end{textblock}
+\end{frame}
+
+
+\section[Bibliography]{Literature}
+\begin{frame}\frametitle{Sources \& Literature}
+
+\begin{thebibliography}{9}
+\bibitem[Beamerpaket]{paket} \emph{Beamer Paket} \\ 
+\text{http://latex-beamer.sourceforge.net/}
+\bibitem[Beamerdokumentation]{doku} \emph{User's Guide to the Beamer} 
+\bibitem[Dante]{dante} \emph{DANTE e.V.} \text{http://www.dante.de}   
+\end{thebibliography}
+
+
+\end{frame}
+
+
+
+\end{document}
+

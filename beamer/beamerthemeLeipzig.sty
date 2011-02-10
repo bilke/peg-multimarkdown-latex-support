@@ -1,0 +1,80 @@
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+%%           Author:    Christoph L. Schneider
+
+%use Helvetica (UFZ style)
+\usepackage{helvet}
+
+%within the math environment use serif fonts as default
+\usefonttheme{professionalfonts}
+
+\usecolortheme{Leipzig}
+
+\mode<presentation>
+
+\newif\ifbeamer@numbers
+\newif\ifbeamer@flowchart
+\newif\ifbeamer@nav
+
+%default values of optional arguments
+\beamer@numbersfalse
+\beamer@flowchartfalse
+\beamer@navfalse
+
+\DeclareOptionBeamer{numbers}{\beamer@numberstrue}
+\DeclareOptionBeamer{flowchart}{\beamer@flowcharttrue}
+\DeclareOptionBeamer{nav}{\beamer@navtrue}
+
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+\ifbeamer@nav
+   \setbeamertemplate{sidebar right}
+   {
+    \vfill%
+    \llap{\insertlogo\hskip7.8cm}%
+    \vskip10pt
+    \llap{\usebeamertemplate***{navigation symbols}\hskip7.8cm}%
+    \vskip10pt
+   }
+\else
+  \setbeamertemplate{navigation symbols}{}  % Removes navigation symbols
+\fi
+
+\ifbeamer@flowchart
+  \useoutertheme[subsection=false]{miniframes}
+\fi
+
+\ifbeamer@numbers  
+  \setbeamercolor{footline}{fg=white}
+  \addtobeamertemplate{footline}
+  {}
+  {%
+	\vskip-1cm\hskip20pt
+   	%\insertpagenumber\,/\,\insertpresentationendpage\kern1em\vskip4pt%
+  	Page \insertframenumber\,/\,\inserttotalframenumber\kern1em\vskip4pt%
+  }
+\fi
+
+\setbeamertemplate{frametitle}[default][center]
+
+\AtBeginDocument{
+  {
+    \usebeamercolor{section in head/foot}
+  }
+  \setbeamercolor{section in head/foot}{bg=ufzblue}
+}
+
+\beamertemplatedotitem
+
+
+\usecolortheme{whale}
+\setbeamercolor{titlelike}{parent=structure}
+
+\mode
+<all>
